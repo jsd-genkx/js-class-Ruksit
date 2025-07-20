@@ -112,19 +112,30 @@ class DigitalProduct extends Product {
 // After you finish implementing, uncomment the code below and run to see if it works.
 
 try {
+  console.log("=== LandProduct ===");
   const apple = new LandProduct("Apple", 100, new Date(2025, 6, 1));
   console.log(apple.getInfo()); // [Land] Apple costs $100
   apple.applyDiscount(10);
   console.log(apple.getInfo()); // [Land] Apple costs $90
   console.log("Days old:", apple.getAge());
 
+  console.log("\n=== SeaProduct ===");
   const tuna = new SeaProduct("Tuna", 200, new Date(2025, 6, 10));
   console.log(tuna.getInfo()); // [Sea] Tuna costs $200
   tuna.applyDiscount(5);
   console.log(tuna.getInfo()); // [Sea] Tuna costs $190
 
+  console.log("\n=== DigitalProduct (BONUS) ===");
+  const ebook = new DigitalProduct("E-Book", 50, new Date(2025, 2, 1));
+  console.log(ebook.getInfo()); // [Digital] E-Book costs $50
+  ebook.applyDiscount(20);
+  console.log(ebook.getInfo()); // [Digital] E-Book costs $40
+  ebook.getAge(); // logs "Not applicable for digital products."
+
+  console.log("\n=== ValidationError test ===");
   // Uncomment below to test error
-  // Product.validateName(""); // should throw ValidationError
+  Product.validateName(""); // should throw ValidationError
+  
 } catch (err) {
   if (err instanceof ValidationError) {
     console.error("Validation failed:", err.message);
